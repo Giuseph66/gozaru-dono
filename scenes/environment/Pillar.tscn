@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/environment/pillar_placeholder.svg" id="1_pillar"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/shadow_blob.svg" id="2_shadow"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pillar"]
+size = Vector2(28, 22)
+
+[node name="Pillar" type="StaticBody2D"]
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(0, -5)
+scale = Vector2(0.7, 0.42)
+z_index = -1
+texture = ExtResource("2_shadow")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -58)
+texture = ExtResource("1_pillar")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -11)
+shape = SubResource("RectangleShape2D_pillar")
+
+[node name="BaseMarker" type="Marker2D" parent="."]

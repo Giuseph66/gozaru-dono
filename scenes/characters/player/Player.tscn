@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/characters/player/player_controller_2d.gd" id="1_player_controller"]
+[ext_resource type="Texture2D" path="res://assets/sprites/characters/player/player_placeholder.svg" id="2_player_sprite"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/shadow_blob.svg" id="3_shadow"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_player"]
+radius = 10.0
+height = 34.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_player_controller")
+move_speed = 170.0
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(0, -3)
+scale = Vector2(0.58, 0.42)
+z_index = -1
+texture = ExtResource("3_shadow")
+
+[node name="BodySprite" type="Sprite2D" parent="."]
+position = Vector2(0, -32)
+texture = ExtResource("2_player_sprite")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -16)
+shape = SubResource("CapsuleShape2D_player")
+
+[node name="FeetMarker" type="Marker2D" parent="."]
+
+[node name="LookPoint" type="Marker2D" parent="."]
+position = Vector2(0, -30)

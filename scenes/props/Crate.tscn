@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/props/crate_placeholder.svg" id="1_crate"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/shadow_blob.svg" id="2_shadow"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_crate"]
+size = Vector2(38, 28)
+
+[node name="Crate" type="StaticBody2D"]
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(0, -4)
+scale = Vector2(0.65, 0.42)
+z_index = -1
+texture = ExtResource("2_shadow")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -26)
+texture = ExtResource("1_crate")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -14)
+shape = SubResource("RectangleShape2D_crate")
+
+[node name="BaseMarker" type="Marker2D" parent="."]

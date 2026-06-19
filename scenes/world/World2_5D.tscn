@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/environment/GroundPatch.tscn" id="1_ground"]
+[ext_resource type="PackedScene" path="res://scenes/characters/player/Player.tscn" id="2_player"]
+[ext_resource type="PackedScene" path="res://scenes/props/Crate.tscn" id="3_crate"]
+[ext_resource type="PackedScene" path="res://scenes/environment/Pillar.tscn" id="4_pillar"]
+[ext_resource type="Script" path="res://scripts/world/depth_layer_2d.gd" id="5_depth"]
+[ext_resource type="Script" path="res://scripts/world/camera_follow_2d.gd" id="6_camera"]
+
+[node name="World2_5D" type="Node2D"]
+
+[node name="BackgroundLayer" type="Node2D" parent="."]
+z_index = -100
+
+[node name="GroundPatch" parent="BackgroundLayer" instance=ExtResource("1_ground")]
+
+[node name="DepthLayer" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("5_depth")
+
+[node name="PillarBack" parent="DepthLayer" instance=ExtResource("4_pillar")]
+position = Vector2(-160, -40)
+
+[node name="CrateLeft" parent="DepthLayer" instance=ExtResource("3_crate")]
+position = Vector2(-90, 70)
+
+[node name="Player" parent="DepthLayer" instance=ExtResource("2_player")]
+position = Vector2(0, 40)
+
+[node name="CrateRight" parent="DepthLayer" instance=ExtResource("3_crate")]
+position = Vector2(130, 15)
+
+[node name="PillarFront" parent="DepthLayer" instance=ExtResource("4_pillar")]
+position = Vector2(190, 100)
+
+[node name="PlayerStart" type="Marker2D" parent="."]
+position = Vector2(0, 40)
+
+[node name="ForegroundLayer" type="Node2D" parent="."]
+z_index = 200
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, 40)
+zoom = Vector2(2, 2)
+enabled = true
+script = ExtResource("6_camera")
