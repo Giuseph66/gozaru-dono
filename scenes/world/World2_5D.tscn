@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3]
+[gd_scene load_steps=13 format=3]
 
 [ext_resource type="PackedScene" path="res://scenes/environment/GroundPatch.tscn" id="1_ground"]
 [ext_resource type="PackedScene" path="res://scenes/characters/player/Player.tscn" id="2_player"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" path="res://scenes/props/grama/GramaVersao1.tscn" id="9_grass_small"]
 [ext_resource type="PackedScene" path="res://scenes/props/grama/GramaVersao2.tscn" id="10_grass_tall"]
 [ext_resource type="PackedScene" path="res://scenes/props/chao/ChaoBase.tscn" id="11_chao_base"]
+[ext_resource type="PackedScene" path="res://scenes/props/ScenePortal.tscn" id="12_portal"]
 
 [node name="World2_5D" type="Node2D"]
 
@@ -32,6 +33,10 @@ scale = Vector2(0.48, 0.48)
 
 [node name="PillarBack" parent="DepthLayer" instance=ExtResource("4_pillar")]
 position = Vector2(-160, -40)
+
+[node name="FactoryPortal" parent="DepthLayer" instance=ExtResource("12_portal")]
+position = Vector2(-330, -30)
+target_scene_path = "res://scenes/levels/jornada_03_cacada/Fabrica.tscn"
 
 [node name="GrassTallLeft" parent="DepthLayer" instance=ExtResource("10_grass_tall")]
 position = Vector2(-245, 28)

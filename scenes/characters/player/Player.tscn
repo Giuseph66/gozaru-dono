@@ -39,9 +39,10 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k835w"]
 height = 28.0
 
-[node name="Player" type="CharacterBody2D" unique_id=1926153695]
+[node name="Player" type="CharacterBody2D" unique_id=1926153695 groups=["player"]]
 script = ExtResource("1_player_controller")
 move_speed = 170.0
+metadata/_edit_group_ = true
 
 [node name="Shadow" type="Sprite2D" parent="." unique_id=670378882]
 z_index = -1

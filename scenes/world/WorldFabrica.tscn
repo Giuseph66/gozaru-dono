@@ -1,55 +1,54 @@
-[gd_scene load_steps=9 format=3]
+[gd_scene format=3 uid="uid://bq3wgeygaouh3"]
 
 [ext_resource type="PackedScene" path="res://scenes/props/chao/FabricaChao.tscn" id="1_chao"]
-[ext_resource type="PackedScene" path="res://scenes/characters/player/Player.tscn" id="2_player"]
+[ext_resource type="PackedScene" uid="uid://ddcr36mtvrn5n" path="res://scenes/characters/player/Player.tscn" id="2_player"]
 [ext_resource type="PackedScene" path="res://scenes/props/Crate.tscn" id="3_crate"]
 [ext_resource type="PackedScene" path="res://scenes/props/fabrica/MetalColumn.tscn" id="4_column"]
-[ext_resource type="Script" path="res://scripts/world/depth_layer_2d.gd" id="5_depth"]
-[ext_resource type="Script" path="res://scripts/world/camera_follow_2d.gd" id="6_camera"]
-[ext_resource type="PackedScene" path="res://scenes/characters/antagonista/ValdomiroRico.tscn" id="7_valdomiro"]
+[ext_resource type="Script" uid="uid://bdnavqf7wvt5g" path="res://scripts/world/depth_layer_2d.gd" id="5_depth"]
+[ext_resource type="Script" uid="uid://r5q03xrvcpak" path="res://scripts/world/camera_follow_2d.gd" id="6_camera"]
+[ext_resource type="PackedScene" uid="uid://bvoabum1ydrs7" path="res://scenes/characters/antagonista/ValdomiroRico.tscn" id="7_valdomiro"]
 [ext_resource type="PackedScene" path="res://scenes/props/fabrica/MetalDebris.tscn" id="8_debris"]
 
-[node name="WorldFabrica" type="Node2D"]
+[node name="WorldFabrica" type="Node2D" unique_id=674858713]
 
-[node name="BackgroundLayer" type="Node2D" parent="."]
+[node name="BackgroundLayer" type="Node2D" parent="." unique_id=17971831]
 z_index = -100
 
-[node name="FabricaChao" parent="BackgroundLayer" instance=ExtResource("1_chao")]
+[node name="FabricaChao" parent="BackgroundLayer" unique_id=332896487 instance=ExtResource("1_chao")]
 
-[node name="DepthLayer" type="Node2D" parent="."]
+[node name="DepthLayer" type="Node2D" parent="." unique_id=2023490043]
 y_sort_enabled = true
 script = ExtResource("5_depth")
 
-[node name="MetalColumnBackLeft" parent="DepthLayer" instance=ExtResource("4_column")]
+[node name="MetalColumnBackLeft" parent="DepthLayer" unique_id=2142483286 instance=ExtResource("4_column")]
 position = Vector2(-260, -95)
 
-[node name="MetalColumnBackRight" parent="DepthLayer" instance=ExtResource("4_column")]
+[node name="MetalColumnBackRight" parent="DepthLayer" unique_id=1570227719 instance=ExtResource("4_column")]
 position = Vector2(260, -92)
 
-[node name="CrateLeft" parent="DepthLayer" instance=ExtResource("3_crate")]
+[node name="CrateLeft" parent="DepthLayer" unique_id=801308230 instance=ExtResource("3_crate")]
 position = Vector2(-190, 38)
 
-[node name="CrateRight" parent="DepthLayer" instance=ExtResource("3_crate")]
+[node name="CrateRight" parent="DepthLayer" unique_id=2061595826 instance=ExtResource("3_crate")]
 position = Vector2(170, 24)
 
-[node name="Player" parent="DepthLayer" instance=ExtResource("2_player")]
-position = Vector2(0, 58)
+[node name="Player" parent="DepthLayer" unique_id=1327201174 instance=ExtResource("2_player")]
+position = Vector2(29, 66)
 
-[node name="ValdomiroRico" parent="DepthLayer" instance=ExtResource("7_valdomiro")]
+[node name="ValdomiroRico" parent="DepthLayer" unique_id=1227402165 instance=ExtResource("7_valdomiro")]
 position = Vector2(285, 70)
 
-[node name="FloorDebrisA" parent="DepthLayer" instance=ExtResource("8_debris")]
+[node name="FloorDebrisA" parent="DepthLayer" unique_id=1976841739 instance=ExtResource("8_debris")]
 position = Vector2(-88, 138)
 
-[node name="FloorDebrisB" parent="DepthLayer" instance=ExtResource("8_debris")]
+[node name="FloorDebrisB" parent="DepthLayer" unique_id=725179709 instance=ExtResource("8_debris")]
 position = Vector2(74, -28)
 scale = Vector2(0.82, 0.82)
 
-[node name="PlayerStart" type="Marker2D" parent="."]
+[node name="PlayerStart" type="Marker2D" parent="." unique_id=426654464]
 position = Vector2(0, 58)
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2102801639]
 position = Vector2(0, 58)
 zoom = Vector2(2, 2)
-enabled = true
 script = ExtResource("6_camera")

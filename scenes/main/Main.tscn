@@ -7,12 +7,11 @@
 
 [node name="Game" type="Node" unique_id=1020307895]
 script = ExtResource("1_game_root")
-hud_path = NodePath("World2_5D/HUD")
 
 [node name="World2_5D" parent="." unique_id=317393314 instance=ExtResource("2_world")]
 position = Vector2(485, 366)
 
-[node name="HUD" parent="World2_5D" unique_id=1322106928 instance=ExtResource("3_hud")]
+[node name="HUD" parent="." unique_id=1322106928 instance=ExtResource("3_hud")]
 
 [node name="StoryState" type="Node" parent="."]
 script = ExtResource("4_story_state")
