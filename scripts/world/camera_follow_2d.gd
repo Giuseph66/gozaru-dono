@@ -16,5 +16,5 @@ func _process(delta: float) -> void:
 	if target == null:
 		return
 
-	var weight := clamp(follow_speed * delta, 0.0, 1.0)
+	var weight: float = clampf(follow_speed * delta, 0.0, 1.0)
 	global_position = global_position.lerp(target.global_position, weight)

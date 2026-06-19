@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/environment/grass/GrassTuftSmall.tscn" id="1_small"]
+[ext_resource type="PackedScene" path="res://scenes/environment/grass/GrassTuftTall.tscn" id="2_tall"]
+[ext_resource type="PackedScene" path="res://scenes/environment/grass/GrassStripPixel.tscn" id="3_strip"]
+
+[node name="GrassCluster" type="Node2D"]
+
+[node name="BackStrip" parent="." instance=ExtResource("3_strip")]
+position = Vector2(0, 12)
+scale = Vector2(0.85, 0.85)
+
+[node name="TallLeft" parent="." instance=ExtResource("2_tall")]
+position = Vector2(-68, 4)
+scale = Vector2(0.78, 0.78)
+
+[node name="SmallMid" parent="." instance=ExtResource("1_small")]
+position = Vector2(4, 16)
+
+[node name="TallRight" parent="." instance=ExtResource("2_tall")]
+position = Vector2(76, 2)
+scale = Vector2(0.72, 0.72)
+
+[node name="SmallFront" parent="." instance=ExtResource("1_small")]
+position = Vector2(42, 28)
+scale = Vector2(0.75, 0.75)
+
+[node name="BaseMarker" type="Marker2D" parent="."]

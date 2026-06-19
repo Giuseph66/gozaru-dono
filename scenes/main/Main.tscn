@@ -1,12 +1,18 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene format=3 uid="uid://dedaif6ef57xm"]
 
-[ext_resource type="Script" path="res://scripts/core/game_root.gd" id="1_game_root"]
+[ext_resource type="Script" uid="uid://v613spwhyefl" path="res://scripts/core/game_root.gd" id="1_game_root"]
 [ext_resource type="PackedScene" path="res://scenes/world/World2_5D.tscn" id="2_world"]
 [ext_resource type="PackedScene" path="res://scenes/ui/HUD.tscn" id="3_hud"]
+[ext_resource type="Script" path="res://scripts/story/story_state.gd" id="4_story_state"]
 
-[node name="Game" type="Node"]
+[node name="Game" type="Node" unique_id=1020307895]
 script = ExtResource("1_game_root")
+hud_path = NodePath("World2_5D/HUD")
 
-[node name="World2_5D" parent="." instance=ExtResource("2_world")]
+[node name="World2_5D" parent="." unique_id=317393314 instance=ExtResource("2_world")]
+position = Vector2(485, 366)
 
-[node name="HUD" parent="." instance=ExtResource("3_hud")]
+[node name="HUD" parent="World2_5D" unique_id=1322106928 instance=ExtResource("3_hud")]
+
+[node name="StoryState" type="Node" parent="."]
+script = ExtResource("4_story_state")

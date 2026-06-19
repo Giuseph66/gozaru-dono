@@ -1,32 +1,66 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene format=3 uid="uid://ddcr36mtvrn5n"]
 
-[ext_resource type="Script" path="res://scripts/characters/player/player_controller_2d.gd" id="1_player_controller"]
-[ext_resource type="Texture2D" path="res://assets/sprites/characters/player/player_placeholder.svg" id="2_player_sprite"]
-[ext_resource type="Texture2D" path="res://assets/sprites/effects/shadow_blob.svg" id="3_shadow"]
+[ext_resource type="Script" uid="uid://3ljviv4to0ud" path="res://scripts/characters/player/player_controller_2d.gd" id="1_player_controller"]
+[ext_resource type="Texture2D" uid="uid://y0t35kpatb7s" path="res://assets/sprites/characters/player/parado.png" id="2_idle"]
+[ext_resource type="Texture2D" uid="uid://50rf2r4njexy" path="res://assets/sprites/characters/player/caminhando/passo-1.png" id="3_walk_1"]
+[ext_resource type="Texture2D" uid="uid://0t5lhhj74m7v" path="res://assets/sprites/characters/player/caminhando/passo-1_0001.png" id="4_walk_2"]
+[ext_resource type="Texture2D" uid="uid://ctc3bfdyei0h" path="res://assets/sprites/characters/player/caminhando/passo-1_0002.png" id="5_walk_3"]
+[ext_resource type="Texture2D" uid="uid://c0fo5ya1dng15" path="res://assets/sprites/characters/player/caminhando/passo-2.png" id="6_walk_4"]
+[ext_resource type="Texture2D" uid="uid://38oybtwldf7s" path="res://assets/sprites/effects/shadow_blob.svg" id="7_shadow"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_player"]
-radius = 10.0
-height = 34.0
+[sub_resource type="SpriteFrames" id="SpriteFrames_player"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_idle")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_walk_1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_walk_2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_walk_3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_walk_4")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]
 
-[node name="Player" type="CharacterBody2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k835w"]
+height = 28.0
+
+[node name="Player" type="CharacterBody2D" unique_id=1926153695]
 script = ExtResource("1_player_controller")
 move_speed = 170.0
 
-[node name="Shadow" type="Sprite2D" parent="."]
-position = Vector2(0, -3)
-scale = Vector2(0.58, 0.42)
+[node name="Shadow" type="Sprite2D" parent="." unique_id=670378882]
 z_index = -1
-texture = ExtResource("3_shadow")
+position = Vector2(-3.4570694e-06, -4.0000005)
+scale = Vector2(0.45833334, 0.48)
+texture = ExtResource("7_shadow")
 
-[node name="BodySprite" type="Sprite2D" parent="."]
-position = Vector2(0, -32)
-texture = ExtResource("2_player_sprite")
+[node name="BodySprite" type="AnimatedSprite2D" parent="." unique_id=787130210]
+position = Vector2(0.15999985, -27.480003)
+scale = Vector2(0.16, 0.16)
+sprite_frames = SubResource("SpriteFrames_player")
+animation = &"idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -16)
-shape = SubResource("CapsuleShape2D_player")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=213289023]
+position = Vector2(-2, -13)
+shape = SubResource("CapsuleShape2D_k835w")
+debug_color = Color(0, 0.6, 0.69803923, 0.0627451)
 
-[node name="FeetMarker" type="Marker2D" parent="."]
+[node name="FeetMarker" type="Marker2D" parent="." unique_id=1561989728]
 
-[node name="LookPoint" type="Marker2D" parent="."]
-position = Vector2(0, -30)
+[node name="LookPoint" type="Marker2D" parent="." unique_id=1916297024]
+position = Vector2(0.15999985, -38.480003)

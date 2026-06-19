@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3]
+[gd_scene load_steps=12 format=3]
 
 [ext_resource type="PackedScene" path="res://scenes/environment/GroundPatch.tscn" id="1_ground"]
 [ext_resource type="PackedScene" path="res://scenes/characters/player/Player.tscn" id="2_player"]
@@ -6,6 +6,11 @@
 [ext_resource type="PackedScene" path="res://scenes/environment/Pillar.tscn" id="4_pillar"]
 [ext_resource type="Script" path="res://scripts/world/depth_layer_2d.gd" id="5_depth"]
 [ext_resource type="Script" path="res://scripts/world/camera_follow_2d.gd" id="6_camera"]
+[ext_resource type="PackedScene" path="res://scenes/characters/antagonista/ValdomiroPobre.tscn" id="7_valdomiro_pobre"]
+[ext_resource type="PackedScene" path="res://scenes/props/grama/GramaCluster.tscn" id="8_grass_cluster"]
+[ext_resource type="PackedScene" path="res://scenes/props/grama/GramaVersao1.tscn" id="9_grass_small"]
+[ext_resource type="PackedScene" path="res://scenes/props/grama/GramaVersao2.tscn" id="10_grass_tall"]
+[ext_resource type="PackedScene" path="res://scenes/props/chao/ChaoBase.tscn" id="11_chao_base"]
 
 [node name="World2_5D" type="Node2D"]
 
@@ -13,22 +18,44 @@
 z_index = -100
 
 [node name="GroundPatch" parent="BackgroundLayer" instance=ExtResource("1_ground")]
+visible = false
+
+[node name="ChaoBase" parent="BackgroundLayer" instance=ExtResource("11_chao_base")]
 
 [node name="DepthLayer" type="Node2D" parent="."]
 y_sort_enabled = true
 script = ExtResource("5_depth")
 
+[node name="GrassClusterBack" parent="DepthLayer" instance=ExtResource("8_grass_cluster")]
+position = Vector2(-220, -78)
+scale = Vector2(0.48, 0.48)
+
 [node name="PillarBack" parent="DepthLayer" instance=ExtResource("4_pillar")]
 position = Vector2(-160, -40)
 
+[node name="GrassTallLeft" parent="DepthLayer" instance=ExtResource("10_grass_tall")]
+position = Vector2(-245, 28)
+scale = Vector2(0.45, 0.45)
+
 [node name="CrateLeft" parent="DepthLayer" instance=ExtResource("3_crate")]
 position = Vector2(-90, 70)
+
+[node name="GrassSmallCenter" parent="DepthLayer" instance=ExtResource("9_grass_small")]
+position = Vector2(-28, 96)
+scale = Vector2(0.45, 0.45)
 
 [node name="Player" parent="DepthLayer" instance=ExtResource("2_player")]
 position = Vector2(0, 40)
 
 [node name="CrateRight" parent="DepthLayer" instance=ExtResource("3_crate")]
 position = Vector2(130, 15)
+
+[node name="GrassClusterRight" parent="DepthLayer" instance=ExtResource("8_grass_cluster")]
+position = Vector2(252, 126)
+scale = Vector2(0.42, 0.42)
+
+[node name="ValdomiroOrigin" parent="DepthLayer" instance=ExtResource("7_valdomiro_pobre")]
+position = Vector2(260, 55)
 
 [node name="PillarFront" parent="DepthLayer" instance=ExtResource("4_pillar")]
 position = Vector2(190, 100)

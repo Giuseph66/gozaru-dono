@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bvoabum1ydrs7"]
+
+[ext_resource type="Script" uid="uid://dv6svfekmsu72" path="res://scripts/characters/antagonista/valdomiro_actor_2d.gd" id="1_valdomiro"]
+[ext_resource type="Texture2D" uid="uid://tbv4o03bptt6" path="res://assets/sprites/characters/antagonista/rico/parado.png" id="2_sprite"]
+[ext_resource type="Texture2D" uid="uid://38oybtwldf7s" path="res://assets/sprites/effects/shadow_blob.svg" id="3_shadow"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_valdomiro"]
+size = Vector2(34, 33)
+
+[node name="ValdomiroRico" type="StaticBody2D" unique_id=1443595744]
+script = ExtResource("1_valdomiro")
+visual_phase = "Rico"
+first_story_journey = 2
+
+[node name="Shadow" type="Sprite2D" parent="." unique_id=2105318663]
+z_index = -1
+position = Vector2(-0.49999917, -2)
+scale = Vector2(0.53125, 0.4)
+texture = ExtResource("3_shadow")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=987495731]
+position = Vector2(0, -37)
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("2_sprite")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=11764824]
+position = Vector2(-1, -16.5)
+shape = SubResource("RectangleShape2D_valdomiro")
+debug_color = Color(0, 0.6, 0.69803923, 0.050980393)
+
+[node name="BaseMarker" type="Marker2D" parent="." unique_id=1874902511]

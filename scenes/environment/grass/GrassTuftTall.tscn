@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/environment/grass/grass_tuft_tall.svg" id="1_grass"]
+
+[node name="GrassTuftTall" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -28)
+texture = ExtResource("1_grass")
+
+[node name="BaseMarker" type="Marker2D" parent="."]

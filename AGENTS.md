@@ -6,6 +6,13 @@ Projeto Godot 4.6 desenvolvido com apoio de agentes de IA.
 
 Criar um jogo 2D com profundidade 2.5D, mantendo cenas, sprites, scripts e recursos bem separados para facilitar edicao direta pela Godot.
 
+## Fonte de verdade narrativa
+
+- A historia oficial fica em `historia/`.
+- Nao mudar pilares narrativos sem pedido do dev.
+- `docs/design/GAME_DESIGN.md` formaliza a direcao jogavel.
+- `docs/design/JORNADAS_IMPLEMENTACAO.md` mapeia roteiro para fases.
+
 ## Regras para agentes
 
 - Preservar a arquitetura existente.
@@ -26,12 +33,16 @@ Criar um jogo 2D com profundidade 2.5D, mantendo cenas, sprites, scripts e recur
 - O sprite deve ser filho deslocado para cima.
 - A colisao deve ficar proxima da base do objeto.
 - Props do mundo devem ser instanciados em `World2_5D/DepthLayer`.
+- Personagens de historia devem ter cenas proprias em `scenes/characters/**`.
+- A progressao deve consultar ou manter coerencia com `StoryState`.
 
 ## Organizacao atual
 
 - Entrada: `scenes/main/Main.tscn`
 - Mundo: `scenes/world/World2_5D.tscn`
 - Jogador: `scenes/characters/player/Player.tscn`
+- Antagonista: `scenes/characters/antagonista/`
+- Estado narrativo: `scripts/story/story_state.gd`
 - Props: `scenes/props/`
 - Ambiente: `scenes/environment/`
 - HUD: `scenes/ui/HUD.tscn`
